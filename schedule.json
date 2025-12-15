@@ -1,4 +1,13 @@
 {
-  "posts": [],
+  "posts": [
+    {
+      "id": "post_001",
+      "image_url": "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=1080&q=80",
+      "caption": "Automated post test! 🚀\n\nThis was scheduled and posted automatically via GitHub Actions.\n\n#automation #instagram #test",
+      "post_type": "feed",
+      "scheduled_time": "2024-12-16 00:00",
+      "status": "pending"
+    }
+  ],
   "last_checked": null
 }
