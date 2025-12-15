@@ -1,7 +1,9 @@
 import os
 import sys
 import json
+import base64
 import logging
+import requests
 from datetime import datetime
 
 # Add scripts directory to path for imports
@@ -27,6 +29,60 @@ def save_schedule(schedule):
         json.dump(schedule, f, indent=2)
 
 
+def delete_image_from_github(image_url):
+    """Delete image from GitHub after posting"""
+    github_token = os.environ.get('GITHUB_TOKEN')
+    repo_owner = os.environ.get('GITHUB_REPO_OWNER')
+    repo_name = os.environ.get('GITHUB_REPO_NAME')
+
+    if not all([github_token, repo_owner, repo_name]):
+        logger.warning("GitHub credentials not available for image cleanup")
+        return False
+
+    try:
+        # Extract filename from URL
+        if 'raw.githubusercontent.com' in image_url:
+            filename = image_url.split('/images/')[-1]
+            repo_path = f"images/{filename}"
+        else:
+            return False
+
+        headers = {
+            'Authorization': f'token {github_token}',
+            'Accept': 'application/vnd.github.v3+json'
+        }
+
+        # Get file SHA
+        url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{repo_path}"
+        response = requests.get(url, headers=headers)
+
+        if response.status_code != 200:
+            logger.warning(f"Image not found in repo: {repo_path}")
+            return False
+
+        sha = response.json().get('sha')
+
+        # Delete file
+        data = {
+            'message': f'Auto-delete after posting: {filename}',
+            'sha': sha,
+            'branch': 'main'
+        }
+
+        response = requests.delete(url, headers=headers, json=data)
+
+        if response.status_code == 200:
+            logger.info(f"Deleted image from GitHub: {repo_path}")
+            return True
+        else:
+            logger.warning(f"Failed to delete image: {response.json()}")
+            return False
+
+    except Exception as e:
+        logger.error(f"Error deleting image: {e}")
+        return False
+
+
 def main():
     token = os.environ.get('INSTAGRAM_ACCESS_TOKEN')
     account_id = os.environ.get('INSTAGRAM_ACCOUNT_ID')
@@ -43,6 +99,7 @@ def main():
     logger.info(f"Total posts in schedule: {len(schedule.get('posts', []))}")
 
     posts_published = 0
+    images_to_delete = []
 
     for post in schedule.get('posts', []):
         if post.get('status') != 'pending':
@@ -72,6 +129,10 @@ def main():
                     post['media_id'] = result.get('media_id')
                     posts_published += 1
                     logger.info(f"Posted successfully: {result.get('media_id')}")
+
+                    # Queue image for deletion
+                    if image_url:
+                        images_to_delete.append(image_url)
                 else:
                     post['status'] = 'failed'
                     post['error'] = result.get('error')
@@ -82,6 +143,10 @@ def main():
 
     schedule['last_checked'] = now.isoformat()
     save_schedule(schedule)
+
+    # Delete images after successful posting
+    for image_url in images_to_delete:
+        delete_image_from_github(image_url)
 
     logger.info(f"Done. Published {posts_published} posts.")
 
