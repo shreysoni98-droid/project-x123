@@ -1,0 +1,36 @@
+name: Instagram Auto Poster
+
+  on:
+    schedule:
+      - cron: '*/15 * * * *'
+    workflow_dispatch:
+
+  jobs:
+    post:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+
+        - name: Set up Python
+          uses: actions/setup-python@v5
+          with:
+            python-version: '3.11'
+
+        - name: Install dependencies
+          run: pip install requests
+
+        - name: Run poster script
+          env:
+            INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+            INSTAGRAM_ACCOUNT_ID: ${{ secrets.INSTAGRAM_ACCOUNT_ID }}
+          run: python scripts/cron_poster.py
+
+        - name: Commit schedule updates
+          run: |
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "github-actions[bot]"
+            git add schedule.json || true
+            git diff --staged --quiet || git commit -m "Update schedule after posting"
+            git push || true
