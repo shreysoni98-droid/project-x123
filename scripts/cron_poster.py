@@ -29,55 +29,22 @@ def save_schedule(schedule):
         json.dump(schedule, f, indent=2)
 
 
-def delete_image_from_github(image_url):
-    """Delete image from GitHub after posting"""
-    github_token = os.environ.get('GITHUB_TOKEN')
-    repo_owner = os.environ.get('GITHUB_REPO_OWNER')
-    repo_name = os.environ.get('GITHUB_REPO_NAME')
-
-    if not all([github_token, repo_owner, repo_name]):
-        logger.warning("GitHub credentials not available for image cleanup")
-        return False
-
+def delete_image_locally(image_url):
+    """Delete image locally on runner (workflow will commit the deletion)"""
     try:
-        # Extract filename from URL
         if 'raw.githubusercontent.com' in image_url:
             filename = image_url.split('/images/')[-1]
-            repo_path = f"images/{filename}"
+            local_path = f"images/{filename}"
         else:
             return False
 
-        headers = {
-            'Authorization': f'token {github_token}',
-            'Accept': 'application/vnd.github.v3+json'
-        }
-
-        # Get file SHA
-        url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{repo_path}"
-        response = requests.get(url, headers=headers)
-
-        if response.status_code != 200:
-            logger.warning(f"Image not found in repo: {repo_path}")
-            return False
-
-        sha = response.json().get('sha')
-
-        # Delete file
-        data = {
-            'message': f'Auto-delete after posting: {filename}',
-            'sha': sha,
-            'branch': 'main'
-        }
-
-        response = requests.delete(url, headers=headers, json=data)
-
-        if response.status_code == 200:
-            logger.info(f"Deleted image from GitHub: {repo_path}")
+        if os.path.exists(local_path):
+            os.remove(local_path)
+            logger.info(f"Deleted image: {local_path}")
             return True
         else:
-            logger.warning(f"Failed to delete image: {response.json()}")
+            logger.warning(f"Image not found: {local_path}")
             return False
-
     except Exception as e:
         logger.error(f"Error deleting image: {e}")
         return False
@@ -144,9 +111,9 @@ def main():
     schedule['last_checked'] = now.isoformat()
     save_schedule(schedule)
 
-    # Delete images after successful posting
+    # Delete images locally (workflow will commit the deletion)
     for image_url in images_to_delete:
-        delete_image_from_github(image_url)
+        delete_image_locally(image_url)
 
     logger.info(f"Done. Published {posts_published} posts.")
 
