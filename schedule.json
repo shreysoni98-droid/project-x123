@@ -1,25 +1,4 @@
 {
-  "posts": [
-    {
-      "id": "post_1765871326733_2zcq9uw6o",
-      "image_path": "Workout in gym/inf1/generated_015_a_inf1_optimized.jpg",
-      "caption": "Trading the comfort zone for the growth zone. There\u2019s no better feeling than knowing you put the work in today.\n\n#HomeGymLife #FitnessMotivation #WorkoutFlow #GirlWhoLifts #SweatSession #FitSpo #StrongNotSkinny #GarageGains",
-      "scheduled_time": "2025-12-16 07:49",
-      "post_type": "feed",
-      "status": "pending",
-      "created_at": "2025-12-16T07:48:46.733Z",
-      "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251216_131847_generated_015_a_inf1_optimized.jpg"
-    },
-    {
-      "id": "post_1765871326733_a6ywawb8k",
-      "image_path": "Workout in gym/inf1/generated_010_a_inf1_optimized.jpg",
-      "caption": "Sometimes you just need to move your body to change your whole mood. Keeping the energy high this week!\n\n#fitlife #homefitness #consistency #bodyweighttraining #workoutroutine #sweatequity #fitnessmotivation #noexcuses",
-      "scheduled_time": "2025-12-16 07:49",
-      "post_type": "story",
-      "status": "pending",
-      "created_at": "2025-12-16T07:48:46.733Z",
-      "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251216_131850_generated_010_a_inf1_optimized.jpg"
-    }
-  ],
-  "last_checked": "2025-12-16T07:45:00"
+  "posts": [],
+  "last_checked": "2025-12-16T07:49:35.212832"
 }
