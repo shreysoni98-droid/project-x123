@@ -141,7 +141,7 @@ def main():
 
     posts_published = 0
     images_to_delete = []
-    schedule_changed = False
+    posted_ids = []  # Track IDs of successfully posted entries to remove
 
     for post in schedule.get('posts', []):
         if post.get('status') != 'pending':
@@ -166,11 +166,8 @@ def main():
                     result = api.post_to_feed(image_url, caption)
 
                 if result['success']:
-                    post['status'] = 'posted'
-                    post['posted_at'] = now.isoformat()
-                    post['media_id'] = result.get('media_id')
+                    posted_ids.append(post.get('id'))
                     posts_published += 1
-                    schedule_changed = True
                     logger.info(f"Posted successfully: {result.get('media_id')}")
 
                     # Queue image for deletion
@@ -179,16 +176,20 @@ def main():
                 else:
                     post['status'] = 'failed'
                     post['error'] = result.get('error')
-                    schedule_changed = True
                     logger.error(f"Failed: {result.get('error')}")
 
         except ValueError as e:
             logger.error(f"Invalid date format: {e}")
 
+    # Remove successfully posted entries from schedule
+    if posted_ids:
+        schedule['posts'] = [p for p in schedule.get('posts', []) if p.get('id') not in posted_ids]
+        logger.info(f"Removed {len(posted_ids)} posted entries from schedule")
+
     schedule['last_checked'] = now.isoformat()
 
     # Update schedule on GitHub if changed
-    if schedule_changed or posts_published > 0:
+    if posted_ids or any(p.get('status') == 'failed' for p in schedule.get('posts', [])):
         update_schedule_on_github(schedule, schedule_sha)
 
     # Delete images from GitHub after successful posting
