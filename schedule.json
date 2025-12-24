@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "post_1766572586492_ghqhyzsql",
-      "image_path": "dubai trip/inf1/generated_002_a_inf1_optimized.jpg",
-      "caption": "This is what the vision board looked like. \ud83e\udd42\u2728\n\n#Dubai #LuxuryTravel #NightSwim #Skyline #MainCharacterMoment #PoolsideVibes #TravelInspo",
-      "scheduled_time": "2025-12-24 13:30",
-      "post_type": "feed",
-      "status": "pending",
-      "created_at": "2025-12-24T10:36:26.492Z",
-      "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251224_160626_generated_002_a_inf1_optimized.jpg"
-    },
-    {
       "id": "post_1766572586492_9wje6kgsi",
       "image_path": "dubai trip/inf1/generated_011_a_inf1_optimized.jpg",
       "caption": "Traded the black car for the brown one. Worth it. \ud83d\udc2a\u2728\n\n#DubaiDesertSafari #TravelAesthetic #DesertVibes #MainCharacterEnergy #LowKeyLuxury #Globetrotter #EmeraldGreen",
@@ -171,5 +161,5 @@
       "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251224_160710_generated_016_a_inf1_optimized.jpg"
     }
   ],
-  "last_checked": "2025-12-16T07:49:35.212832"
+  "last_checked": "2025-12-24T18:14:10.217400"
 }
