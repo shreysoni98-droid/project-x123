@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "post_1766572586492_dtbfk8ob6",
-      "image_path": "dubai trip/inf1/generated_012_a_inf1_optimized.jpg",
-      "caption": "Came for the high tea, stayed for the high ceilings. \ud83d\udc85\u2728\n\n#DubaiTrip #BurjAlArab #AfternoonTea #OOTD #GoldenAesthetic #TravelDiaries",
-      "scheduled_time": "2025-12-25 15:30",
-      "post_type": "feed",
-      "status": "pending",
-      "created_at": "2025-12-24T10:36:26.492Z",
-      "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251224_160637_generated_012_a_inf1_optimized.jpg"
-    },
-    {
       "id": "post_1766572586492_lxbb9k7fn",
       "image_path": "dubai trip/inf1/generated_014_a_inf1_optimized.jpg",
       "caption": "Souk nights and solid gold energy. \u2728\ud83e\udd42\n\n#dubaitrip #dubaigoldensouk #soukvibes #lowkeyflex #blackdress #travelgram #goldjewelry",
@@ -121,5 +111,5 @@
       "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251224_160710_generated_016_a_inf1_optimized.jpg"
     }
   ],
-  "last_checked": "2025-12-25T13:47:57.689554"
+  "last_checked": "2025-12-25T15:43:11.796955"
 }
