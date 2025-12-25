@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "post_1766572586492_p59accbkk",
-      "image_path": "dubai trip/inf1/generated_001_a_inf1_optimized.jpg",
-      "caption": "Desert drip and my official security detail. \ud83e\udd85\ud83c\udfdc\ufe0f\n\n#DubaiLife #DesertAesthetic #Falconry #UAE #OOTD #Grwm",
-      "scheduled_time": "2025-12-25 08:00",
-      "post_type": "story",
-      "status": "pending",
-      "created_at": "2025-12-24T10:36:26.492Z",
-      "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251224_160632_generated_001_a_inf1_optimized.jpg"
-    },
-    {
       "id": "post_1766572586492_s79wpby7w",
       "image_path": "dubai trip/inf1/generated_009_a_inf1_optimized.jpg",
       "caption": "Serving looks and sailing. Dubai just hits different. \ud83d\udee5\ufe0f\u2728\n\n#Dubai #AtlantisThePalm #CatamaranLife #VacationMode #JetSetLife #UAE #TravelAesthetic",
@@ -141,5 +131,5 @@
       "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251224_160710_generated_016_a_inf1_optimized.jpg"
     }
   ],
-  "last_checked": "2025-12-25T05:48:39.920716"
+  "last_checked": "2025-12-25T08:54:08.764305"
 }
