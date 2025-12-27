@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "post_1766572586492_zkot2p9i8",
-      "image_path": "dubai trip/inf1/generated_013_a_inf1_optimized.jpg",
-      "caption": "We decided to make 'luxury beach day' a personality trait. \u2708\ufe0f\u2600\ufe0f\n\n#Dubai #BurjAlArab #BeachDayVibes #TravelAesthetic #CrochetBikini #SummerDump",
-      "scheduled_time": "2025-12-27 05:30",
-      "post_type": "feed",
-      "status": "pending",
-      "created_at": "2025-12-24T10:36:26.492Z",
-      "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251224_160651_generated_013_a_inf1_optimized.jpg"
-    },
-    {
       "id": "post_1766572586492_vc80jrh7q",
       "image_path": "fitness influencer in gym/inf1/generated_015_a_inf1_optimized.jpg",
       "caption": "Earned this one. Vibe is immaculate. \u2728\n\n#recoveryday #selfcarefirst #wellnessjourney #spaday #indoorswimming #luxelife #postworkoutchill",
@@ -81,5 +71,5 @@
       "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251224_160710_generated_016_a_inf1_optimized.jpg"
     }
   ],
-  "last_checked": "2025-12-26T15:39:20.460657"
+  "last_checked": "2025-12-27T05:42:55.976292"
 }
