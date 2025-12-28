@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "post_1766572586492_errkvlv5r",
-      "image_path": "liefstyle in mumbai/inf1/generated_018_a_inf1_optimized.jpg",
-      "caption": "Dinner prep is the only hustle I\u2019m doing tonight. Mumbai nights. \ud83d\udd2a\u2728\n\n#MumbaiLife #HighRiseLiving #KitchenGoals #AestheticVibes #HomeChef #DinnerPrep",
-      "scheduled_time": "2025-12-28 08:00",
-      "post_type": "story",
-      "status": "pending",
-      "created_at": "2025-12-24T10:36:26.492Z",
-      "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251224_160704_generated_018_a_inf1_optimized.jpg"
-    },
-    {
       "id": "post_1766572586492_qur2ir34v",
       "image_path": "wedding in udaipur wearing red dress/inf1/generated_005_a_inf1_optimized.jpg",
       "caption": "Red dress energy hitting different when the backdrop is this royal. \u2728\n\n#UdaipurDiaries #DestinationWeddingVibes #IndianAesthetic #RoyalRajasthan #RedOutfit #CityofLakes #GhatLife",
@@ -31,5 +21,5 @@
       "image_url": "https://raw.githubusercontent.com/shreysoni98-droid/project-x123/main/images/20251224_160710_generated_016_a_inf1_optimized.jpg"
     }
   ],
-  "last_checked": "2025-12-28T05:04:06.008415"
+  "last_checked": "2025-12-28T08:49:45.729022"
 }
